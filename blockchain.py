@@ -1,11 +1,34 @@
-blockchain = [1]
+# Blockchain 101
+blockchain = []
+ORIGIN = 9
 
 
-def add_value(amount):
-    blockchain.append([blockchain[-1], amount])
+def get_last_blockchain_value():
+    """ Returns the last value of the blockchain """
+    return blockchain[-1]
+
+
+def add_value(value, last=[ORIGIN]):
+    """ Add a value into the blockchain """
+    blockchain.append([last, value])
     print(blockchain)
 
 
-add_value(5.3)
-add_value(3.2)
-add_value(7.1)
+def get_input():
+    return float(input('Please enter your transaction amount: '))
+
+
+transaction = get_input()
+add_value(transaction)
+transaction = get_input()
+add_value(transaction, get_last_blockchain_value())
+transaction = get_input()
+add_value(transaction, get_last_blockchain_value())
+
+
+for block in blockchain:
+    print('Block: ')
+    print(block)
+
+
+print('Done!!!')
