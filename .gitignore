@@ -1,2 +1,4 @@
 env
 *.db
+python.code-workspace
+.vscode/
